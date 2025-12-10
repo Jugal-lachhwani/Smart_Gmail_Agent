@@ -1,3 +1,2 @@
 .env
-src\tools\credentials.json
 **/credentials.json
