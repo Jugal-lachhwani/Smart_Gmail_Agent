@@ -27,3 +27,13 @@ class RagQuerries(BaseModel):
 class EmailWritter(BaseModel):
     email : str = Field(...,description="Write the email according to the specific instruction")
     
+class ProofReaderOutput(BaseModel):
+    feedback: str = Field(
+        ..., 
+        description="Detailed feedback explaining why the email is or is not sendable."
+    )
+    send: bool = Field(
+        ..., 
+        description="Indicates whether the email is ready to be sent (true) or requires rewriting (false)."
+    )
+    

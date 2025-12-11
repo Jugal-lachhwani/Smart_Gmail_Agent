@@ -59,6 +59,15 @@ class Agents:
             | llm.with_structured_output(EmailWritter)
         )
         
+        proofreader_prompt = PromptTemplate(
+            template=EMAIL_PROOFREADER_PROMPT, 
+            input_variables=["initial_email", "generated_email"]
+        )
+        self.email_proofreader = (
+            proofreader_prompt | 
+            llm.with_structured_output(ProofReaderOutput) 
+        )
+        
         
         
         

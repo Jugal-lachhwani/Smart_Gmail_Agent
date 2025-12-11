@@ -1,6 +1,6 @@
-from typing import TypedDict,List
+from typing import TypedDict,List,Annotated
 from pydantic import BaseModel,Field
-
+from langgraph.graph.message import add_messages
 
 class Email(BaseModel):
     id: str = Field(..., description="Unique identifier of the email")
@@ -16,3 +16,8 @@ class GraphState(TypedDict):
     current_email : Email
     email_category : str
     generated_email : str
+    rag_queries : List[str]
+    retrived_document : str
+    writter_messages : Annotated[List, add_messages]
+    sendable : bool
+    trials : int
