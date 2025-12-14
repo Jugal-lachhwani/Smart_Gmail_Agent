@@ -8,7 +8,7 @@ class Nodes:
         self.agents = Agents()
         self.gmail_tools = GmailToolsClass()
 
-    def load_new_email(self,state: GraphState) -> GraphState:
+    def load_inbox_emails(self,state: GraphState) -> GraphState:
         """Load new emails rom gmail and updates the state"""
         print(Fore.YELLOW+"Loading new email... \n"+Style.RESET_ALL)
         recent_emails = self.gmail_tools.fetch_unanswered_emails()
